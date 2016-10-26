@@ -10,15 +10,15 @@ module.exports = generators.Base.extend({
 			type   : 'input',
 			name   : 'name',
 			message: 'Name',
-			default: 'SimpleService'
+			default: 'SimpleRoute'
 		}).then(function (answers) {
 			this.answers = answers;
 		}.bind(this));
 	},
 	create     : function () {
 		this.fs.copyTpl(
-			this.templatePath('service.js'),
-			this.destinationPath(`app/services/${this.answers.name}/index.js`), {
+			this.templatePath('route.js'),
+			this.destinationPath(`app/routes/${this.answers.name}/index.js`), {
 				name: this.answers.name
 			}
 		);
